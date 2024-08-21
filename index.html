@@ -167,9 +167,6 @@
         </div>
       </div>
     </div>
-    <div class="columns is-centered">
-            <img src="./static/images/framework.png" class="interpolation-image" alt="Interpolate start reference image.">
-      </div>
     </div>
     <!--/ Abstract. -->
 </section>
@@ -191,14 +188,41 @@
             3. 针对图卷积后的过度平滑问题，引入knn方法去除患者图中的错误连接。<br>
             4. 新颖的损失函数和训练策略使模型以端到端的方式联合优化，与SOTA方法比较， MAGCN 在疾病诊断任务上展现出了显著的优势。<br>
           </p>
-          <h3 class="title is-4">
-            <a href="https://fcon_1000.projects.nitrc.org/indi/abide/" target="_blank">ABIDE</a>
-          </h3>
-            <p>
-              ABIDE 为了加速对自闭症神经基础的理解，自闭症脑成像数据交换（ABIDE）收集了来自 24 个不同实验室的功能和结构脑成像数据. 数据包含四种模态：人口统计信息、自动解剖质量评估指标、自动功能质量评估指标和功能磁共振成像连接网络. 实验中选择 871 名受试者进行自闭症疾病诊断，包括403个自闭症谱系障碍（ASD）受试者和468个正常对照（NC）.实验使用连接组分析的可配置管道（C-PAC）进行数据预处理. 
-            </p>
           </div>
           <br/>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">相关工作</h2>
+        <div class="content has-text-justified">
+          <h3 class="title is-4">多模态融合</h3>
+          <p>
+            <br>
+早期的研究工作主要将不同模态的原始数据或特征表示直接串联到分类器中，这种方法可能无法有效处理此类数据固有的异质性，存在维度灾难的风险。Jesneck等人[29]及后续研究[3, 4, 5]通过为每个模态训练单独的分类器并合并其输出，或采用多核学习将数据映射到高维嵌入中，然后在SVM模型中进行线性或加权组合以进行分类，从而解决了这一问题[12, 13]。然而，这些方法往往忽视了模态特定信息的复杂性以及模态间的相关性。
+最近，深度神经网络在编码和融合多模态数据方面获得了显著地位。例如，[30]等方法引入了策略来选择高度相关的多模态特征、降低维度，并利用多注意力融合模块将MRI特征与其他临床数据进行整合。尽管这些进展旨在捕获共享信息和模态依赖信息[21]，但它们仍然相对较少地探索患者之间的相似性。
+此外，旨在增强融合过程的研究已转向替代方法。提出了深度半非负矩阵分解[6]以及原始特征与共享嵌入之间的双向映射[33]，以更好地保留模态共享表示并探索模态间的相关性。然而，在多模态数据中挖掘互补信息的挑战仍然是有效疾病诊断的关键问题。
+除了模态间关系外，在多模态分析背景下患者与患者之间关系的重要性也日益受到认可。考虑患者之间的关系可以提供额外的见解，这些见解在仅关注多模态数据融合时可能会被忽视。因此，迫切需要不仅能够有效整合多模态信息，而且能够利用患者相似性来增强疾病预测和诊断的方法。
+          </p>
+          </div>
+          <br/>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">方法</h2>
+        <div class="content has-text-justified">
+          <p>
+            <br>
+          1.多模态表示提取
+          2.图结构学习
+          3.GCN分类
+          </p>
+          <div class="columns is-centered">
+            <img src="./static/images/t1.png" class="interpolation-image" alt="Interpolate start reference image.">
+          </div>
+         </div>
+          <br/>
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">数据集及预处理</h2>
