@@ -206,9 +206,14 @@
         <h3 class="title is-4">对比实验</h3>
         <div class="content has-text-justified">
           <p>
-            We first compare our model with DiffAug, CDC, Crop&Paste,
-            SDGAN, DefectGAN and DFMGAN on anomaly generation quality (measured by
-            Inception Score) and diversity (measured by Intra-cluster Pairwise LPIPS Distance)
+            基线方法：<br>
+            PopGCN: 利用人口统计信息手动构建图，并通过图卷积网络 (GCN) 聚合受试者的成像特征进行分类。<br>
+            InceptionGCN: 引入多尺寸图滤波器，以提升GCN在疾病诊断任务中的表现。<br>
+            Multi-GCN: 采用自注意力机制聚合从每个统计元素构建的多个图所得的分类预测值。<br>
+            EV-GCN: 引入具有动态边权重的自适应可学习图，由非成像特征计算得出权重，随后采用谱GCN优化。<br>
+            LGL: 不同于手工设计图的方法，基于融合多模态嵌入相似性构建图结构，并通过GCN进行分类。<br>
+            MMGL: 利用模态感知表示学习提取模态特异性表示和模态共享表示，并通过自适应图神经网络捕捉患者之间的联系。<br>
+            实验将 MAGCN 方法与以上基线方法进行了比较。实验结果表明，方法在两个数据集上都优于最佳基线方法。使用融合多模态特征创建的图普遍表现较好， MAGCN 将经过自适应权重学习的原始数据和嵌入特征相结合，在多模态疾病诊断任务中取得了较好的性能。
           </p>
         </div>
         <div class="columns is-centered">
@@ -230,7 +235,7 @@
           <div class="columns is-centered">
             <img src="./static/images/t2.png" class="interpolation-image" alt="Interpolate start reference image.">
             </div>
-        <h3 class="title is-4">类内与类间相似性可视化</h3>
+        <h3 class="title is-4">类内与类间相似度可视化</h3>
         <div class="content has-text-justified">
           <p>
             We employ the generated data to help the downstream anomaly detection, localization,
@@ -282,7 +287,7 @@
       </a>
     </div>
     <div class="columns is-centered">
-      <div class="column is-4">
+      <div class="column is-8">
         <div class="content">
           <p>
             This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
