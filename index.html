@@ -200,10 +200,10 @@
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Comparison on Anomlay Generation Methods</h2>
+        <h2 class="title is-3">实验结果与分析</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Generation Quality and Diversity</h3>
+        <h3 class="title is-4">对比实验</h3>
         <div class="content has-text-justified">
           <p>
             We first compare our model with DiffAug, CDC, Crop&Paste,
@@ -218,7 +218,7 @@
           </div>
         </div>
 
-    <h3 class="title is-4">Generated Data for Downstream Anomaly Detection Tasks</h3>
+    <h3 class="title is-4">消融实验</h3>
         <div class="content has-text-justified">
           <p>
             We employ the generated data to help the downstream anomaly detection, localization,
@@ -230,12 +230,20 @@
           <div class="columns is-centered">
             <img src="./static/images/t2.png" class="interpolation-image" alt="Interpolate start reference image.">
             </div>
-          <br/>
+        <h3 class="title is-4">类内与类间相似性可视化</h3>
+        <div class="content has-text-justified">
+          <p>
+            We employ the generated data to help the downstream anomaly detection, localization,
+            and classification tasks. For anomaly detection and localization, we train an UNet
+            on our generated data (anomaly image-mask pairs). And for anomaly classification,
+            we train a ResNet-18 on our generated data (anomaly image and class label). Then,
+            we evaluate the perfoemance on the test dataset.
+          </p>
           <div class="columns is-centered">
             <img src="./static/images/p2.png" class="interpolation-image" alt="Interpolate start reference image.">
         </div>
 
-    <h2 class="title is-3">Comparison with SOTA AD Models</h2>
+<!--     <h2 class="title is-3">类内与类间关系可视化</h2>
         <div class="content has-text-justified">
           <p>
             We employ the UNet trained on our generated data to compare with
@@ -247,7 +255,7 @@
       </div>
           </div>
           <br/>
-</section>
+</section> -->
 
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
