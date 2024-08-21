@@ -206,14 +206,14 @@
         <h3 class="title is-4">对比实验</h3>
         <div class="content has-text-justified">
           <p>
-            基线方法：<br>
+            <b>基线方法: </b><br>
             PopGCN: 利用人口统计信息手动构建图，并通过图卷积网络 (GCN) 聚合受试者的成像特征进行分类。<br>
             InceptionGCN: 引入多尺寸图滤波器，以提升GCN在疾病诊断任务中的表现。<br>
             Multi-GCN: 采用自注意力机制聚合从每个统计元素构建的多个图所得的分类预测值。<br>
             EV-GCN: 引入具有动态边权重的自适应可学习图，由非成像特征计算得出权重，随后采用谱GCN优化。<br>
             LGL: 不同于手工设计图的方法，基于融合多模态嵌入相似性构建图结构，并通过GCN进行分类。<br>
             MMGL: 利用模态感知表示学习提取模态特异性表示和模态共享表示，并通过自适应图神经网络捕捉患者之间的联系。<br>
-            实验将 MAGCN 方法与以上基线方法进行了比较。实验结果表明，方法在两个数据集上都优于最佳基线方法。使用融合多模态特征创建的图普遍表现较好， MAGCN 将经过自适应权重学习的原始数据和嵌入特征相结合，在多模态疾病诊断任务中取得了较好的性能。
+            <br>实验将 MAGCN 方法与以上基线方法进行了比较。实验结果表明，方法在两个数据集上都优于最佳基线方法。使用融合多模态特征创建的图普遍表现较好， MAGCN 将经过自适应权重学习的原始数据和嵌入特征相结合，在多模态疾病诊断任务中取得了较好的性能。
           </p>
         </div>
         <div class="columns is-centered">
@@ -226,11 +226,7 @@
     <h3 class="title is-4">消融实验</h3>
         <div class="content has-text-justified">
           <p>
-            We employ the generated data to help the downstream anomaly detection, localization,
-            and classification tasks. For anomaly detection and localization, we train an UNet
-            on our generated data (anomaly image-mask pairs). And for anomaly classification,
-            we train a ResNet-18 on our generated data (anomaly image and class label). Then,
-            we evaluate the perfoemance on the test dataset.
+            从消融实验的评估结果中，可以观察到方法各组成部分的贡献。由自适应权重学习的原始数据和嵌入特征构建的图 S 对最终结果贡献较大，改进的损失函数相比于原论文会产生更好的结果。kNN 稀疏化也有助于优化图结构，去除错误的连接。
           </p>
           <div class="columns is-centered">
             <img src="./static/images/t2.png" class="interpolation-image" alt="Interpolate start reference image.">
@@ -238,11 +234,8 @@
         <h3 class="title is-4">类内与类间相似度可视化</h3>
         <div class="content has-text-justified">
           <p>
-            We employ the generated data to help the downstream anomaly detection, localization,
-            and classification tasks. For anomaly detection and localization, we train an UNet
-            on our generated data (anomaly image-mask pairs). And for anomaly classification,
-            we train a ResNet-18 on our generated data (anomaly image and class label). Then,
-            we evaluate the perfoemance on the test dataset.
+            热图展示了任意两个患者的特征向量之间的余弦相似度，可以观察到 GNN 的效果以及和 MAGCN 相比于 MMGL 的改进。矩阵的对角线区域表示类内相似性，而非对角线部分表示类间相似性。原始多模态嵌入经过GNN模块生成聚合特征，显著增强了类内相似性，减少了类间相似性，这表明图学习显著提高了表示质量，
+            MAGCN 方法有效地学习了更具区分性的特征表示，而 MMGL 部分样本具有较高的类间相似性，如矩阵的非对角线区域中的黄色条带所示。
           </p>
           <div class="columns is-centered">
             <img src="./static/images/p2.png" class="interpolation-image" alt="Interpolate start reference image.">
