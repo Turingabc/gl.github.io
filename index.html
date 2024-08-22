@@ -213,8 +213,11 @@
           <p>
             <br>
           1.多模态表示提取<br>
+            对于输入X，使用编码器提取模态特征，采用缩放点积注意力机制获取模态共享和特异表示。<br>
           2.图结构学习<br>
+            加权求和从原始数据和潜在嵌入中的两个图，采用kNN稀疏化去除错误连接。<br>
           3.GCN分类<br>
+            利用GCN聚合邻居结点信息进行预测，结合辅助分类器损失进行联合优化。<br>
           </p>
           <div class="columns is-centered">
             <img src="./static/images/p1.png" class="interpolation-image" alt="Interpolate start reference image.">
